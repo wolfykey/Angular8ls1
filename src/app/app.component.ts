@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+export interface Post {
+  id?: number;
+  title: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +12,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-basics';
+  posts: Post[] = [
+    {
+      title: 'Title 1',
+      text: 'Description 1',
+      id: 1
+    },
+    {
+      title: 'Title 2',
+      text: 'Description 2',
+      id: 2
+    },
+  ];
 }
