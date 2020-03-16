@@ -1,11 +1,20 @@
 <div class="container">
-  <h1>Angular Components</h1>
+  <h1>Angular Directives</h1>
 
-  <app-post-form (onAdd)="updatePosts($event)">
-  </app-post-form>
-  <hr>
-  <app-post
-    *ngFor="let p of posts"
-    [post]="p">
-  </app-post>
+  <p
+    [appStyle]="'red'"
+    [dStyles]="{ border: '1px solid blue', borderRadius: '5px' }"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quaerat nisi
+  </p>
+
+  <button class="btn" (click)="isVisible = !isVisible">toogle</button>
+
+  <div *appIfnot="!isVisible" class="wrap">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam provident
+      incidunt impedit inventore praesentium animi ducimus, cumque nihil
+      pariatur adipisci!
+    </p>
+  </div>
 </div>
