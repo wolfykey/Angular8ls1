@@ -6,5 +6,8 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  isVisible = true;
+  e: number = Math.E;
+  str: string = "hello world";
+  date: Date = new Date();
+  float = 0.42;
 }
