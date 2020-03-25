@@ -1,6 +1,19 @@
 <div class="container">
-  <h1>Angular Pipes</h1>
-  <p>Wait for it... {{ p | async }}</p>
+  <h1>Angular Services</h1>
 
-  <p>Date: {{ date | async | date:'HH:mm:ss yyyy' }}</p>
+  <div class="card">
+    <h2>App counter: {{appCounterService.counter}}</h2>
+    <button class="btn" (click)="appCounterService.increase()">+</button>
+    <button class="btn" (click)="appCounterService.decrease()">-</button>
+  </div>
+
+  <div class="card">
+    <h2>Local counter: {{localCounterService.counter}}</h2>
+    <button class="btn" (click)="localCounterService.increase()">+</button>
+    <button class="btn" (click)="localCounterService.decrease()">-</button>
+  </div>
+
+  <hr>
+
+  <app-counter></app-counter>
 </div>

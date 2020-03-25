@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AppCounterService } from './services/app-counter.service';
+import { LocalCounterService } from './services/local-counter.service';
 
 export interface IPost {
   title: string;
@@ -9,18 +10,12 @@ export interface IPost {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ]
+  styleUrls: [ './app.component.scss' ],
+  providers: [LocalCounterService]
 })
 export class AppComponent {
-  p: Promise<string> = new Promise<string>(resolve => {
-    setTimeout(() => {
-      resolve('promise resolved');
-    }, 4000);
-  });
-
-  date: Observable<Date> = new Observable<Date>(obs => {
-    setInterval(() => {
-      obs.next(new Date());
-    }, 1000);
-  });
+  constructor(
+    private appCounterService: AppCounterService,
+    private localCounterService: LocalCounterService
+  ) {}
 }
