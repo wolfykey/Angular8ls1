@@ -17,6 +17,14 @@
           *ngIf="form.get('email').errors.email">
           Input correct email!
         </small>
+        <small
+          *ngIf="form.get('email').errors.restrictedEmail">
+          Can't use {{form.get('email').value}} email!
+        </small>
+        <small
+          *ngIf="form.get('email').errors.uniqEmail">
+          Email {{form.get('email').value}} not available!
+        </small>
       </div>
     </div>
 
@@ -69,7 +77,7 @@
       </div>
     </div>
 
-    <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
+    <button class="btn" type="submit" [disabled]="form.invalid || form.pending">Отправить</button>
 
   </form>
 </div>
